@@ -1,0 +1,19 @@
+#meals{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+.meal{
+    border: 1px solid goldenrod;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+.meal-name{
+    font-size: 45px;
+    color: black;
+}
+#idCategory-detail img{
+    width: 200px;
+}
