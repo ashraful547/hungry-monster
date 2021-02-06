@@ -51,3 +51,43 @@ const renderIdCategoryInfo = idCategory => {
     <img src="${idCategory.strCategoryThumb}">
     `
 }
+const searchInput = document.getElementById("search")
+searchInput.addEventListener("input", () => {
+    const value = event.target.value
+    if(value && value.trim().length > 0){
+value = value.trim().toLowerCase()
+setList(item.filter(categories => {
+    return categories.strCategory.includes(value);
+}))
+    }
+    else{
+        clearList()
+    }
+})
+const list = document.getElementById("categories")
+
+function setList(group){
+clearList()
+for (const item of group) {
+    const item = document.createElement("li")
+    const text = document.createTextNode(item.idCategory)
+    item.appendChild(text)
+    list.appendChild(item)
+}
+if(group.length === 0){
+    setNoResults()
+}
+}
+
+function clearList(){
+while(list.firstChild){
+    list.removeChild(list.firstChild)
+}
+}
+
+function setNoResults(){
+    const item = document.createElement("li")
+    const text = document.createTextNode("no results found")
+    item.appendChild(text)
+    list.appendChild(item)
+}
