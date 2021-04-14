@@ -1,6 +1,6 @@
 fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 .then(res => res.json())
-.then(data => displayCategories(data))
+.then(data => displayCategories(data.meal))
 
 const displayCategories = categories =>{
     const CategoriesDiv = document.getElementById("categories")
@@ -19,20 +19,20 @@ categories.forEach(idCategory => {
     idCategoriesDiv.appendChild(idCategoryDiv)
 });
 
-// for (let i = 0; i < categories.length; i++) {
-//     const idCategory = categories[i];
-//     
+for (let i = 0; i < categories.length; i++) {
+    const idCategory = categories[i];
+    
 
-//     const strCategory = document.createElement("h3")
-//     strCategory.innerText = idCategory.strCategory
-//     idCategoryDiv.appendChild(strCategory)
+    const strCategory = document.createElement("h3")
+    strCategory.innerText = idCategory.strCategory
+    idCategoryDiv.appendChild(strCategory)
 
-//     const strCategoryThumb = document.createElement("p")
-//     strCategoryThumb.innerText = idCategory.strCategoryThumb
-// idCategoryDiv.appendChild(strCategoryThumb)
+    const strCategoryThumb = document.createElement("p")
+    strCategoryThumb.innerText = idCategory.strCategoryThumb
+idCategoryDiv.appendChild(strCategoryThumb)
 
-//
-// }
+
+}
 
 }
 
